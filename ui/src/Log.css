@@ -1,0 +1,21 @@
+.Log {
+  padding: 0;
+  font-family: monospace;
+  user-select: auto;
+}
+
+.Log-entry {
+  margin-right: 1em;
+}
+
+.Log-entry,
+.Log-entry-disk,
+.Log-entry-position {
+  display: inline-block;
+}
+
+.Log-entry-disk {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+}

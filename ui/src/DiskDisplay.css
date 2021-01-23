@@ -1,0 +1,48 @@
+.DiskDisplay {
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+  border-radius: 50%;
+  background-color: #008;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 0 0.05em 0, 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.4); */
+  box-shadow: inset 0 -0.2em 0.1em rgba(0, 0, 0, 0.2), 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.4);
+  animation-fill-mode: backwards;
+  animation-duration: 0;
+  /* animation-duration: 0.5s; */
+  /* animation-timing-function: steps(1, end); */
+}
+
+.DiskDisplay--black {
+  background-color: #111;
+  color: #fff;
+  animation-name: DiskDisplay--white-to-black;
+}
+
+.DiskDisplay--white {
+  background-color: #fff;
+  color: #000;
+  animation-name: DiskDisplay--black-to-white;
+}
+
+@keyframes DiskDisplay--white-to-black {
+  from {
+    background-color: #fff;
+  }
+
+  to {
+    background-color: #111;
+  }
+}
+
+@keyframes DiskDisplay--black-to-white {
+  from {
+    background-color: #111;
+  }
+
+  to {
+    background-color: #fff;
+  }
+}

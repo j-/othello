@@ -1,0 +1,60 @@
+.OthelloBoard-square {
+  position: relative;
+  max-width: 40em;
+  margin: 0 auto;
+  touch-action: none;
+}
+
+.OthelloBoard-square:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.OthelloBoard-grid {
+  display: inline-grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  outline: 0.1em solid black;
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.OthelloBoard-tile {
+  font-size: clamp(3vw, 2em);
+  border: 0.05em solid black;
+  position: relative;
+  box-shadow: inset 0.05em 0.05em 0 rgba(255, 255, 255, 0.25);
+  border-radius: 5%;
+  background-color: green;
+}
+
+.OthelloBoard-tile:nth-of-type(10),
+.OthelloBoard-tile:nth-of-type(14),
+.OthelloBoard-tile:nth-of-type(42),
+.OthelloBoard-tile:nth-of-type(46) {
+  border-bottom-right-radius: 10%;
+}
+
+.OthelloBoard-tile:nth-of-type(11),
+.OthelloBoard-tile:nth-of-type(15),
+.OthelloBoard-tile:nth-of-type(43),
+.OthelloBoard-tile:nth-of-type(47) {
+  border-bottom-left-radius: 10%;
+}
+
+.OthelloBoard-tile:nth-of-type(18),
+.OthelloBoard-tile:nth-of-type(22),
+.OthelloBoard-tile:nth-of-type(50),
+.OthelloBoard-tile:nth-of-type(54) {
+  border-top-right-radius: 10%;
+}
+
+.OthelloBoard-tile:nth-of-type(19),
+.OthelloBoard-tile:nth-of-type(23),
+.OthelloBoard-tile:nth-of-type(51),
+.OthelloBoard-tile:nth-of-type(55) {
+  border-top-left-radius: 10%;
+}

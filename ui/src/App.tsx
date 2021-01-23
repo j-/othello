@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { OthelloGame } from '@othello/game';
+import { Local } from 'boardgame.io/multiplayer';
+import { Client } from 'boardgame.io/react';
+import { getBot } from './bot';
+import OthelloBoard from './OthelloBoard';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const OthelloClient = Client({
+  debug: false,
+  game: OthelloGame,
+  board: OthelloBoard,
+  multiplayer: Local({
+    bots: {
+      1: getBot({
+        iterations: 500,
+        playoutDepth: 64,
+      }),
+    },
+  }),
+});
+
+const App: React.FC = () => (
+  <div className="App">
+    <OthelloClient playerID="0" />
+  </div>
+);
 
 export default App;

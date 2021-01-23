@@ -1,0 +1,16 @@
+html {
+  font-size: 20px;
+  font-family: sans-serif;
+  min-height: 100vh;
+  min-height: var(--vh);
+  background-color: #222;
+  color: #fff;
+  user-select: none;
+  overscroll-behavior: none;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}

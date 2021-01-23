@@ -1,0 +1,41 @@
+.MoveDisplay {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.MoveDisplay:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.MoveDisplay:focus {
+  outline: 0.2em solid #fff;
+  outline-offset: 0.2em;
+  z-index: 2;
+}
+
+.MoveDisplay:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.MoveDisplay:focus-visible {
+  outline: 0.2em solid #fff;
+}
+
+.MoveDisplay::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  background-color: #000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
