@@ -1,4 +1,4 @@
 {
-  "packages": ["packages/*"],
+  "packages": ["packages/@othello/*", "ui"],
   "version": "0.0.0"
 }

@@ -1,7 +1,11 @@
 {
-  "name": "@othello/ui",
+  "name": "@othello/root",
   "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap"
+  },
   "devDependencies": {
+    "@types/jest": "^26.0.20",
     "lerna": "^3.22.1",
     "typescript": "^4.1.3"
   }
