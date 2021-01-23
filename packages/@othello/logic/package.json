@@ -1,12 +1,15 @@
 {
   "name": "@othello/logic",
   "version": "0.0.0",
-  "main": "src/othello.ts",
+  "main": "dist/othello.js",
   "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
     "test": "jest"
   },
   "devDependencies": {
     "jest": "^26.6.3",
-    "ts-jest": "^26.4.4"
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.3"
   }
 }

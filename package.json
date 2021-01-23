@@ -1,12 +1,17 @@
 {
   "name": "@othello/root",
   "private": true,
+  "workspaces": [
+    "packages/@othello/*",
+    "ui"
+  ],
   "scripts": {
     "bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "lerna": "^3.22.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.1.3"
   }
 }
