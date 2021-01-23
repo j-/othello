@@ -6,6 +6,7 @@
     "ui"
   ],
   "scripts": {
+    "start": "cd ui && yarn start",
     "bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
