@@ -2,6 +2,7 @@
   "name": "ui",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://skeoh.com/othello",
   "dependencies": {
     "@othello/game": "*",
     "@othello/logic": "*",
@@ -16,6 +17,7 @@
     "@types/react-dom": "^16.9.10",
     "boardgame.io": "^0.43.2",
     "classnames": "^2.2.6",
+    "gh-pages": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -24,6 +26,8 @@
     "workerize-loader": "^1.3.0"
   },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

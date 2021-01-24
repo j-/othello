@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/j-/othello.git"
   },
-  "homepage": "https://sheoh.com/othello",
+  "homepage": "https://skeoh.com/othello",
   "workspaces": [
     "packages/@othello/*",
     "ui"
