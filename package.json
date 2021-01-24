@@ -1,6 +1,14 @@
 {
   "name": "@othello/root",
   "private": true,
+  "bugs": {
+    "url": "https://github.com/j-/othello/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-/othello.git"
+  },
+  "homepage": "https://sheoh.com/othello",
   "workspaces": [
     "packages/@othello/*",
     "ui"
