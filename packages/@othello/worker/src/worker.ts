@@ -1,5 +1,5 @@
 import { Bot, MCTSBot } from 'boardgame.io/ai';
-import { OthelloGame} from '@othello/game';
+import { OthelloGame } from '@othello/game';
 
 let bot: Bot;
 
@@ -22,24 +22,20 @@ const postBack = <T = any>(type: string, payload?: T) => {
   });
 };
 
-handleMessage('INITIALIZE_BOT', (payload) => {
-  self.postMessage({
-    type: 'INITIALIZE_BOT_START',
-  });
-  const iterations = 2000;
-  const playoutDepth = 64;
+handleMessage('INITIALIZE_BOT', () => {
+  postBack('INITIALIZE_BOT_START');
+  const iterations = 500;
+  const playoutDepth = 59;
   const async = false;
   const thinkDelay = 0;
-  const minThinkTime = 1000;
+  const minThinkTime = 500;
   class WorkerBot extends MCTSBot {
     constructor (...args: ConstructorParameters<typeof MCTSBot>) {
       super(...args);
       this.setOpt('iterations', iterations);
       this.setOpt('playoutDepth', playoutDepth);
       this.setOpt('async', async);
-      self.postMessage({
-        type: 'INITIALIZE_BOT_SUCCESS',
-      });
+      postBack('INITIALIZE_BOT_SUCCESS');
     }
 
     async play (...args: Parameters<MCTSBot['play']>) {
@@ -59,10 +55,12 @@ handleMessage('INITIALIZE_BOT', (payload) => {
   bot = new WorkerBot({
     enumerate,
     game,
+    iterations,
+    playoutDepth,
   });
 });
 
 handleMessage('PLAY', async ([state, playerId]) => {
   const result = await bot.play(state, playerId);
-  postBack('PlAY_RESULT', result);
+  postBack('PLAY_RESULT', result);
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { OthelloGame } from '@othello/game';
 import { Local } from 'boardgame.io/multiplayer';
 import { Client } from 'boardgame.io/react';
-import { getBot } from './bot';
+import { WorkerBot } from './worker-bot';
 import OthelloBoard from './OthelloBoard';
 import './App.css';
 
@@ -12,10 +12,7 @@ const OthelloClient = Client({
   board: OthelloBoard,
   multiplayer: Local({
     bots: {
-      1: getBot({
-        iterations: 500,
-        playoutDepth: 64,
-      }),
+      1: WorkerBot,
     },
   }),
 });
