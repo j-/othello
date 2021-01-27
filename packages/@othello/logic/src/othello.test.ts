@@ -20,9 +20,9 @@ import {
 } from './othello';
 
 describe('createBoard()', () => {
-  it('is of type Uint8Array', () => {
+  it('is of type Array', () => {
     const b = createBoard();
-    expect(b).toBeInstanceOf(Uint8Array);
+    expect(b).toBeInstanceOf(Array);
   });
   it('has correct length', () => {
     const b = createBoard();

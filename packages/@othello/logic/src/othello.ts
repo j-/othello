@@ -8,7 +8,7 @@ export const BOARD_TILES = BOARD_SIZE ** 2;
 export const BOARD_LENGTH = BOARD_SIZE * 2;
 
 /** (x,y) coordinates tuple */
-export type Coords = readonly [number, number];
+export type Coords = readonly [x: number, y: number];
 
 /** A row, column, or diagonal line of tiles */
 export type Line = readonly Coords[];
@@ -23,13 +23,13 @@ export enum Disk {
 export const FIRST_MOVE = Disk.BLACK;
 
 /** Uint8Array can store 8 board positions per index */
-export interface Board extends Uint8Array {
+export interface Board extends Array<number> {
   length: typeof BOARD_LENGTH;
 }
 
 /** Create a new board array */
 export const createBoard = (): Board => (
-  new Uint8Array(16 as 16)
+  new Array(16).fill(0)
 );
 
 /** Get the (x,y) coords for the given index */
