@@ -9,8 +9,5 @@
   "dependencies": {
     "@othello/game": "*",
     "boardgame.io": "^0.43.2"
-  },
-  "devDependencies": {
-    "typescript": "^4.1.3"
   }
 }
