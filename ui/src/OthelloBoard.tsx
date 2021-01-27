@@ -2,6 +2,7 @@ import React from 'react';
 import { BOARD_TILES, Disk, getDiskAtIndex, getScore, getWinner, isLegalMoveForIndex } from '@othello/logic';
 import { G, getCurrentPlayer } from '@othello/game';
 import { BoardProps } from 'boardgame.io/react';
+import Scores from './Scores';
 import DiskDisplay from './DiskDisplay';
 import MoveDisplay from './MoveDisplay';
 import Log from './Log';
@@ -38,7 +39,10 @@ const OthelloBoard: React.FC<Props> = ({ G, ctx, moves, playerID, log }) => {
   };
   return (
     <div className="OthelloBoard">
-      <p><strong>Black:</strong> {getScore(G.board, Disk.BLACK)} <strong>White:</strong> {getScore(G.board, Disk.WHITE)}</p>
+      <Scores
+        black={getScore(G.board, Disk.BLACK)}
+        white={getScore(G.board, Disk.WHITE)}
+      />
       <div className="OthelloBoard-square">
         <div className="OthelloBoard-grid">
           {Array.from(new Array(BOARD_TILES), mapToTile)}
