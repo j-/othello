@@ -42,6 +42,7 @@ const OthelloBoard: React.FC<Props> = ({ G, ctx, moves, playerID, log }) => {
       <Scores
         black={getScore(G.board, Disk.BLACK)}
         white={getScore(G.board, Disk.WHITE)}
+        currentPlayer={playerDisk}
       />
       <div className="OthelloBoard-square">
         <div className="OthelloBoard-grid">

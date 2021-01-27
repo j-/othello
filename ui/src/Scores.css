@@ -16,6 +16,10 @@
   margin: 1em 0.5em;
 }
 
+.Scores-player--current-player {
+  box-shadow: inset 0.05em 0.05em 0 rgba(255, 255, 255, 0.25), 0 0 0 0.1em #fff;
+}
+
 .Scores-player:first-child {
   flex-direction: row-reverse;
 }
@@ -23,7 +27,7 @@
 .Scores-player-disk {
   width: 2em;
   height: 2em;
-  padding: 1em;
+  padding: 0.25em;
 }
 
 .Scores-player-score {
