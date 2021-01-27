@@ -43,14 +43,13 @@ const OthelloBoard: React.FC<Props> = ({ G, ctx, moves, playerID, log }) => {
         black={getScore(G.board, Disk.BLACK)}
         white={getScore(G.board, Disk.WHITE)}
         currentPlayer={playerDisk}
+        winner={ctx.gameover ? winner : null}
       />
       <div className="OthelloBoard-square">
         <div className="OthelloBoard-grid">
           {Array.from(new Array(BOARD_TILES), mapToTile)}
         </div>
       </div>
-      {ctx.gameover && <p><strong>{winner === null ? 'Draw' : winner === Disk.BLACK ? 'Black wins' : 'White wins'}</strong></p>}
-      {!ctx.gameover && <p>{ctx.currentPlayer === '0' ? 'Black\'s turn' : 'White\'s turn'}</p>}
       {RENDER_LOG && (
         <>
           <p><strong>Log</strong></p>
