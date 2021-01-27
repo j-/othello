@@ -6,7 +6,6 @@
 
 .Scores-player {
   display: flex;
-  flex-direction: row;
   align-items: center;;
   border: 1px solid #000;
   background-color: green;
@@ -26,6 +25,12 @@
 
 .Scores-player:first-child {
   flex-direction: row-reverse;
+  text-align: left;
+}
+
+.Scores-player:last-child {
+  flex-direction: row;
+  text-align: right;
 }
 
 .Scores-player-disk {
@@ -37,4 +42,5 @@
 .Scores-player-score {
   font-size: clamp(3vw, 2em);
   padding: 0 1em;
+  width: 1em;
 }
