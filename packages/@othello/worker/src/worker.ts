@@ -22,19 +22,14 @@ const postBack = <T = any>(type: string, payload?: T) => {
   });
 };
 
-handleMessage('INITIALIZE_BOT', () => {
+handleMessage('INITIALIZE_BOT', ({ iterations, playoutDepth, thinkDelay, minThinkTime }) => {
   postBack('INITIALIZE_BOT_START');
-  const iterations = 500;
-  const playoutDepth = 59;
-  const async = false;
-  const thinkDelay = 0;
-  const minThinkTime = 500;
   class WorkerBot extends MCTSBot {
     constructor (...args: ConstructorParameters<typeof MCTSBot>) {
       super(...args);
       this.setOpt('iterations', iterations);
       this.setOpt('playoutDepth', playoutDepth);
-      this.setOpt('async', async);
+      this.setOpt('async', false);
       postBack('INITIALIZE_BOT_SUCCESS');
     }
 
