@@ -5,12 +5,9 @@ import { BoardProps } from 'boardgame.io/react';
 import Scores from './Scores';
 import DiskDisplay from './DiskDisplay';
 import MoveDisplay from './MoveDisplay';
-import Log from './Log';
 import './OthelloBoard.css';
 
 export type Props = BoardProps<G>
-
-const RENDER_LOG = false;
 
 const OthelloBoard: React.FC<Props> = ({ G, ctx, moves, playerID, log }) => {
   const showPositions = (
@@ -50,12 +47,6 @@ const OthelloBoard: React.FC<Props> = ({ G, ctx, moves, playerID, log }) => {
           {Array.from(new Array(BOARD_TILES), mapToTile)}
         </div>
       </div>
-      {RENDER_LOG && (
-        <>
-          <p><strong>Log</strong></p>
-          <Log log={log} />
-        </>
-      )}
     </div>
   );
 };
