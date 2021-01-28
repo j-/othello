@@ -19,7 +19,7 @@
   box-shadow: inset 0.05em 0.05em 0 rgba(255, 255, 255, 0.25), 0 0 0 0.1em #fff;
 }
 
-.Scores--game-over .Scores-player:not(.Scores-player--current-player) {
+.Scores--game-over .Scores-player:not(.Scores-player--winner) {
   opacity: 0.5;
 }
 
