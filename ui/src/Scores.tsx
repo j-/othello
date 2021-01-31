@@ -8,15 +8,21 @@ export interface Props {
   black: number;
   white: number;
   currentPlayer: Disk | null;
-  winner: Disk | null;
+  gameOver: {
+    winner?: string;
+    draw?: true;
+  };
 }
 
-const Scores: React.FC<Props> = ({ black, white, currentPlayer, winner }) => {
+const Scores: React.FC<Props> = ({ black, white, currentPlayer, gameOver }) => {
   return (
-    <div className={classNames('Scores', winner !== null && 'Scores--game-over')}>
+    <div className={classNames('Scores', {
+      'Scores--game-over': gameOver,
+      'Scores--draw': gameOver && gameOver.draw,
+    })}>
       <div className={classNames('Scores-player', {
         'Scores-player--current-player': currentPlayer === Disk.BLACK,
-        'Scores-player--winner': winner === Disk.BLACK,
+        'Scores-player--winner': gameOver && gameOver.winner === String(Disk.BLACK),
       })}>
         <div className="Scores-player-disk">
           <DiskDisplay disk={Disk.BLACK} />
@@ -27,7 +33,7 @@ const Scores: React.FC<Props> = ({ black, white, currentPlayer, winner }) => {
       </div>
       <div className={classNames('Scores-player', {
         'Scores-player--current-player': currentPlayer === Disk.WHITE,
-        'Scores-player--winner': winner === Disk.WHITE,
+        'Scores-player--winner': gameOver && gameOver.winner === String(Disk.WHITE),
       })}>
         <div className="Scores-player-disk">
           <DiskDisplay disk={Disk.WHITE} />
