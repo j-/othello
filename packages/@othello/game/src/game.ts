@@ -20,6 +20,13 @@ export interface G {
   lastPlaced: number | null;
 }
 
+export interface OthelloCtx extends Ctx {
+  gameover?: {
+    winner?: string;
+    draw?: true;
+  };
+}
+
 export const playerToDisk = (player: string): Disk => {
   switch (player) {
     case '0': return Disk.BLACK;
@@ -36,7 +43,7 @@ export const getCurrentPlayer = (ctx: Ctx): Disk => (
   playerToDisk(ctx.currentPlayer)
 );
 
-export const OthelloGame: Game<G> = {
+export const OthelloGame: Game<G, OthelloCtx> = {
   setup: () => {
     const board = createBoard();
     initializeBoard(board);

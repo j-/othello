@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Disk } from '@othello/logic';
+import { OthelloCtx } from '@othello/game';
 import DiskDisplay from './DiskDisplay';
 import './Scores.css';
 
@@ -8,10 +9,7 @@ export interface Props {
   black: number;
   white: number;
   currentPlayer: Disk | null;
-  gameOver: {
-    winner?: string;
-    draw?: true;
-  };
+  gameOver: OthelloCtx['gameover'];
 }
 
 const Scores: React.FC<Props> = ({ black, white, currentPlayer, gameOver }) => {

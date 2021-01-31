@@ -1,13 +1,15 @@
 import React from 'react';
 import { BOARD_TILES, Disk, getDiskAtIndex, getScore, isLegalMoveForIndex } from '@othello/logic';
-import { G, getCurrentPlayer } from '@othello/game';
+import { G, OthelloCtx, getCurrentPlayer } from '@othello/game';
 import { BoardProps } from 'boardgame.io/react';
 import Scores from './Scores';
 import DiskDisplay from './DiskDisplay';
 import MoveDisplay from './MoveDisplay';
 import './OthelloBoard.css';
 
-export type Props = BoardProps<G>
+export type Props = BoardProps<G> & {
+  ctx: OthelloCtx;
+}
 
 const OthelloBoard: React.FC<Props> = ({ G, ctx, moves, playerID, log }) => {
   const showPositions = (
