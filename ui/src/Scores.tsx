@@ -12,36 +12,34 @@ export interface Props {
   gameOver: OthelloCtx['gameover'];
 }
 
-const Scores: React.FC<Props> = ({ black, white, currentPlayer, gameOver }) => {
-  return (
-    <div className={classNames('Scores', {
-      'Scores--game-over': gameOver,
-      'Scores--draw': gameOver && gameOver.draw,
+const Scores: React.FC<Props> = ({ black, white, currentPlayer, gameOver }) => (
+  <div className={classNames('Scores', {
+    'Scores--game-over': gameOver,
+    'Scores--draw': gameOver && gameOver.draw,
+  })}>
+    <div className={classNames('Scores-player', {
+      'Scores-player--current-player': currentPlayer === Disk.BLACK,
+      'Scores-player--winner': gameOver && gameOver.winner === String(Disk.BLACK),
     })}>
-      <div className={classNames('Scores-player', {
-        'Scores-player--current-player': currentPlayer === Disk.BLACK,
-        'Scores-player--winner': gameOver && gameOver.winner === String(Disk.BLACK),
-      })}>
-        <div className="Scores-player-disk">
-          <DiskDisplay disk={Disk.BLACK} />
-        </div>
-        <div className="Scores-player-score">
-          {black}
-        </div>
+      <div className="Scores-player-disk">
+        <DiskDisplay disk={Disk.BLACK} />
       </div>
-      <div className={classNames('Scores-player', {
-        'Scores-player--current-player': currentPlayer === Disk.WHITE,
-        'Scores-player--winner': gameOver && gameOver.winner === String(Disk.WHITE),
-      })}>
-        <div className="Scores-player-disk">
-          <DiskDisplay disk={Disk.WHITE} />
-        </div>
-        <div className="Scores-player-score">
-          {white}
-        </div>
+      <div className="Scores-player-score">
+        {black}
       </div>
     </div>
-  );
-};
+    <div className={classNames('Scores-player', {
+      'Scores-player--current-player': currentPlayer === Disk.WHITE,
+      'Scores-player--winner': gameOver && gameOver.winner === String(Disk.WHITE),
+    })}>
+      <div className="Scores-player-disk">
+        <DiskDisplay disk={Disk.WHITE} />
+      </div>
+      <div className="Scores-player-score">
+        {white}
+      </div>
+    </div>
+  </div>
+);
 
 export default Scores;
