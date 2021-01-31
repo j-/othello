@@ -1,4 +1,5 @@
 import { Ctx, Game } from 'boardgame.io';
+import { INVALID_MOVE } from 'boardgame.io/core';
 
 import {
   applyMoves,
@@ -69,8 +70,7 @@ export const OthelloGame: Game<G> = {
       const { board } = G;
       const disk = getCurrentPlayer(ctx);
       if (!isLegalMoveForIndex(board, index, disk)) {
-        // TODO: Replace with `INVALID_MOVE` constant when not using Codesandbox
-        return 'INVALID_MOVE';
+        return INVALID_MOVE;
       }
       const clone = board.slice(0);
       const moves = playMoveAtIndex(clone, index, disk);
